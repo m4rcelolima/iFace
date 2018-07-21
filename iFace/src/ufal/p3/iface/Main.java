@@ -15,6 +15,9 @@ public class Main {
         int[] birth_month = new int[max_users];
         int[] birth_day = new int[max_users];
         String[] about = new String[max_users];
+        boolean[][] friends = new boolean[max_users][max_users];
+        boolean[][] friend_requests = new boolean[max_users][max_users];
+        String[][] messages = new String[max_users][max_users];
 
 
         Scanner scan = new Scanner(System.in);
@@ -163,9 +166,32 @@ public class Main {
 
                                 }
                                 else if (menu_option == 2){//add friend
-
+                                    System.out.println("");
+                                    System.out.print("Enter the username to send a friend request: ");
+                                    String user_request = scan.nextLine();
+                                    for (int ur = 0; ur < max_users; ur++){
+                                        if (user_request.equals(username[ur])){
+                                            friend_requests[j][ur] = true;
+                                            break;
+                                        }
+                                    }
                                 }
                                 else if (menu_option == 3){//send message
+                                    System.out.println("");
+                                    System.out.println("Send a message to another user");
+
+                                    System.out.print("Send to (username): ");
+                                    String username_msg = scan.nextLine();
+
+                                    System.out.print("Message: ");
+                                    String new_msg = scan.nextLine();
+
+                                    for (int um = 0; um < max_users; um++){
+                                        if (username_msg.equals(username[um])){
+                                            messages[um][j] = new_msg;
+                                        }
+                                    }
+
 
                                 }
                                 else if (menu_option == 4){//create community
