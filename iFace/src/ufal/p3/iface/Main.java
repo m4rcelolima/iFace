@@ -25,7 +25,7 @@ public class Main {
         while (option != 3) {
             System.out.println("");
             System.out.println("Welcome to iFace");
-            System.out.println("There are currently " + user_amount + " registered users");
+            /* System.out.println("There are currently " + user_amount + " registered users"); */
             System.out.println("");
 
             boolean invalid_option = true;
@@ -218,7 +218,36 @@ public class Main {
                                     break;
                                 }
                                 else if (menu_option == 8){//delete account
+                                    System.out.println("ACCOUNT DELETION");
+                                    System.out.println("ARE YOU SURE YOU WANT TO PROCEED?");
+                                    System.out.println("THIS ACTION CANNOT BE UNDONE");
+                                    System.out.println("1: Confirm - I want to DELETE my account");
+                                    System.out.println("2: Cancel");
 
+                                    System.out.print("Type your option: ");
+                                    int delete_option = scan.nextInt();
+                                    scan.nextLine(); //eliminate line ending
+                                    System.out.println("");
+
+                                    if (delete_option == 1) {
+                                        System.out.println("Deleting account...");
+                                        username[j] = "";
+                                        password[j] = "";
+                                        realname[j] = "";
+                                        birth_day[j] = 0;
+                                        birth_month[j] = 0;
+                                        birth_year[j] = 0;
+                                        email[j] = "";
+                                        about[j] = "";
+                                        System.out.println("Accounted deleted succesfully");
+                                        break;
+                                    }
+                                    else if (delete_option == 2){
+                                        System.out.println("Returning");
+                                    }
+                                    else {
+                                        System.out.println("Invalid option, exiting");
+                                    }
                                 }
                                 else {
                                     System.out.println("Invalid option");
